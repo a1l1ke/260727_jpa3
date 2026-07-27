@@ -1,5 +1,6 @@
 package org.example.jpa3.repository;
 
+import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import org.example.jpa3.entity.Phone;
 import org.springframework.data.domain.Page;
@@ -12,9 +13,11 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PhoneRepositoryImpl implements PhoneRepository {
     private final JPAPhoneRepository phoneRepository;
+    private final JPAQueryFactory queryFactory;
 
     @Override
     public List<Phone> findAll() {
+        
         return phoneRepository.findAll();
     }
 

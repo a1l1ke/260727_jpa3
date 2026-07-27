@@ -31,14 +31,7 @@
             <groupId>org.glassfish.web</groupId>
             <artifactId>jakarta.servlet.jsp.jstl</artifactId>
         </dependency>
-        <!--    QueryDSL    -->
-        <!-- Source: https://mvnrepository.com/artifact/io.github.openfeign.querydsl/querydsl-jpa -->
-        <dependency>
-            <groupId>io.github.openfeign.querydsl</groupId>
-            <artifactId>querydsl-jpa</artifactId>
-            <version>7.4.0</version>
-            <scope>compile</scope>
-        </dependency>
+
         <!--    Starter    -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
