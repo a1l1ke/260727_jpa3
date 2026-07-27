@@ -22,5 +22,17 @@
         <button>생성</button>
     </form>
 </section>
+<section>
+    <form method="get" action="/list">
+        <input name="page" type="range" value="0" min="0" max="10" placeholder="페이지">
+        <input name="size" type="range" value="5" min="1" max="5" placeholder="사이즈">
+        <select name="sort">
+            <option value="name,asc">이름 오름차순</option>
+            <option value="createdAt,desc">생성 내림차순</option>
+            <option value="updatedAt,desc">수정 내림차순</option>
+        </select>
+        <button>리스트 보기</button>
+    </form>
+</section>
 </body>
 </html>
