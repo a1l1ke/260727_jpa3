@@ -22,4 +22,8 @@ public class Phone extends BaseEntity {
     public void changeName(String name) {
         this.name = name;
     }
+
+    // JPA -> 영속성 컨텍스트
+    // @PrePersist // 생성 시 발동 (persist)
+    // @PreUpdate // 수정 시 발동 (merge)
 }
