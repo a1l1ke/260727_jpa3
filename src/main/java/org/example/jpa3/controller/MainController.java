@@ -3,6 +3,7 @@ package org.example.jpa3.controller;
 import lombok.RequiredArgsConstructor;
 import org.example.jpa3.dto.PhoneFormDTO;
 import org.example.jpa3.service.PhoneService;
+import org.example.jpa3.service.PhoneService2;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -15,11 +16,15 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class MainController {
     private final PhoneService phoneService;
+    private final PhoneService2 phoneService2;
 
     @GetMapping
     public String index(Model model) {
         model.addAttribute("phones", phoneService.findAll());
-        phoneService.tx1();
+//        phoneService.tx1();
+//        phoneService2.tx2Out();
+//        phoneService.tx2Out();
+        phoneService.tx3();
         return "index";
     }
 
