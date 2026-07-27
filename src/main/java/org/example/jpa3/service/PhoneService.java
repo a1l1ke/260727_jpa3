@@ -37,4 +37,18 @@ public class PhoneService {
         Phone phone = findById(id); // 스냅샷
         phone.changeName(name); // 차이점이 생기면 -> update문을 구동 (현 트랜잭션 하에서)
     }
+
+    @Transactional
+//    @Transactional(readOnly = true)
+    // readOnly = true -> 최적화를 위한 힌트
+    // 강제로 insert를 차단하지는 않기 때문에
+    // throw 발생으로 인해 로직이 차단되며 rollback이 일어나지면
+    // -> db 엔진의 종류나 실행 순서 등에 의해서 의도한 작업 X.
+    public void tx1() {
+        // 1. 여러 repository 등으로 테이블이 걸쳐 있을 때
+        // 2. DB 외에도 외부 API 통신 등이 서비스에서 얽혀있을 때
+        save(Phone.builder().name("tx1").build());
+        System.out.println(1 / 0);
+        save(Phone.builder().name("tx2").build());
+    }
 }

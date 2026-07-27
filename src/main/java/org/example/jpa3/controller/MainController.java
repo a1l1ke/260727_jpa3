@@ -19,6 +19,7 @@ public class MainController {
     @GetMapping
     public String index(Model model) {
         model.addAttribute("phones", phoneService.findAll());
+        phoneService.tx1();
         return "index";
     }
 
