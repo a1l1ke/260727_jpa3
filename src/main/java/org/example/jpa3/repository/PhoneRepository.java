@@ -8,4 +8,6 @@ public interface PhoneRepository {
     List<Phone> findAll();
 
     void save(Phone phone);
+
+    Phone findById(Long id);
 }

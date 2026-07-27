@@ -9,6 +9,11 @@
 <section>
     <c:forEach items="${phones}" var="phone">
         <p>${phone}</p>
+        <p>${phone.createdAt} ${phone.updatedAt}</p>
+        <form method="post" action="/${phone.id}/name">
+            <input name="name" placeholder="바꿀 이름" value="${phone.name}">
+            <button>수정</button>
+        </form>
     </c:forEach>
 </section>
 <section>

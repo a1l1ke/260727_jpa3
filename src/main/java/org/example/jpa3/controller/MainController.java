@@ -5,10 +5,7 @@ import org.example.jpa3.dto.PhoneFormDTO;
 import org.example.jpa3.service.PhoneService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping
@@ -25,6 +22,12 @@ public class MainController {
     @PostMapping
     public String create(@ModelAttribute PhoneFormDTO dto) {
         phoneService.save(dto.toEntity());
+        return "redirect:/";
+    }
+
+    @PostMapping("/{id}/name")
+    public String changeName(@ModelAttribute PhoneFormDTO dto, @PathVariable Long id) {
+        phoneService.changeName(id, dto.name());
         return "redirect:/";
     }
 }

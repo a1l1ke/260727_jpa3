@@ -20,4 +20,9 @@ public class PhoneRepositoryImpl implements PhoneRepository {
     public void save(Phone phone) {
         phoneRepository.save(phone);
     }
+
+    @Override
+    public Phone findById(Long id) {
+        return phoneRepository.findById(id).orElseThrow();
+    }
 }
