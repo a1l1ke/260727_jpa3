@@ -14,6 +14,7 @@ import java.util.NoSuchElementException;
 
 @Service
 @RequiredArgsConstructor
+@Transactional(readOnly = true) // Runtime이 아닌 경우를 집어넣을 수도 있다 (rollbackFor), propagation도 여기서 설정할 수 있다
 public class PhoneService {
     private final PhoneRepository phoneRepository;
 
