@@ -3,6 +3,8 @@ package org.example.jpa3.service;
 import lombok.RequiredArgsConstructor;
 import org.example.jpa3.entity.Phone;
 import org.example.jpa3.repository.PhoneRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,6 +17,10 @@ public class PhoneService {
 
     public List<Phone> findAll() {
         return phoneRepository.findAll();
+    }
+
+    public Page<Phone> findAll(Pageable pageable) {
+        return phoneRepository.findAll(pageable);
     }
 
     public void save(Phone phone) {
